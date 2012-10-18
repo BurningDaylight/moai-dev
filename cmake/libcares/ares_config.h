@@ -352,7 +352,7 @@
 /* #undef NO_MINUS_C_MINUS_O */
 
 /* cpu-machine-OS */
-#define OS "x86_64-unknown-linux-gnu"
+#define OS "i686-pc-linux-gnu"
 
 /* Name of package */
 #define PACKAGE "c-ares"
