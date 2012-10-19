@@ -7,6 +7,8 @@ Thumbs.db
 /ide/bin
 /ide/obj
 
+/.idea
+
 /src/config
 
 build/
