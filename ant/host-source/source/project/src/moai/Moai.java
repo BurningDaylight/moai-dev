@@ -138,6 +138,7 @@ public class Moai {
 	public static final Object		sAkuLock = new Object ();
 
 	protected static native boolean	AKUAppBackButtonPressed			();
+    protected static native boolean	AKUAppMenuButtonPressed			();
 	protected static native void 	AKUAppDialogDismissed			( int dialogResult );
 	protected static native void 	AKUAppDidStartSession			( boolean resumed );
 	protected static native void 	AKUAppWillEndSession 			();
@@ -201,6 +202,17 @@ public class Moai {
 	}
 
 	//----------------------------------------------------------------//
+    public static boolean menuButtonPressed () {
+
+    	boolean result;
+    	synchronized ( sAkuLock ) {
+    		result = AKUAppMenuButtonPressed ();
+    	}
+
+    	return result;
+    }
+
+    //----------------------------------------------------------------//
 	public static int createContext () {
 
 		int contextId;

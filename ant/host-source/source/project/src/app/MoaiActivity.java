@@ -319,7 +319,15 @@ public class MoaiActivity extends Activity {
 				return true;
 			}
 	    }
-	    
+
+        if ( keyCode == KeyEvent.KEYCODE_MENU ) {
+
+   			if ( Moai.menuButtonPressed ()) {
+
+   				return true;
+   			}
+   	    }
+
 	    return super.onKeyDown ( keyCode, event );
 	}
 	
