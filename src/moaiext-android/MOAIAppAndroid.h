@@ -15,7 +15,8 @@
 
 	@const	SESSION_START			Event code indicating the beginning of an app session.
 	@const	SESSION_END				Event code indicating the end of an app sessions.
-	@const	BACK_BUTTON_PRESSED		Event code indicating that the pysical device back button was pressed.
+	@const	BACK_BUTTON_PRESSED		Event code indicating that the physical device back button was pressed.
+	@const	MENU_BUTTON_PRESSED		Event code indicating that the physical device menu button was pressed.
 */
 class MOAIAppAndroid :
 	public MOAIGlobalClass < MOAIAppAndroid, MOAILuaObject > {
@@ -25,6 +26,7 @@ private:
 		SESSION_START,
 		SESSION_END,
 		BACK_BUTTON_PRESSED,
+		MENU_BUTTON_PRESSED,
 		TOTAL,
 	};
 	
@@ -44,6 +46,7 @@ public:
 			MOAIAppAndroid				();
 			~MOAIAppAndroid				();
 	bool	NotifyBackButtonPressed		();
+	bool	NotifyMenuButtonPressed		();
 	void	NotifyDidStartSession		( bool resumed );
 	void	NotifyWillEndSession		();
 	void	RegisterLuaClass			( MOAILuaState& state );

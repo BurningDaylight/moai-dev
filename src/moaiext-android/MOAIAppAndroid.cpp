@@ -197,6 +197,7 @@ void MOAIAppAndroid::RegisterLuaClass ( MOAILuaState& state ) {
 	state.SetField ( -1, "SESSION_START",		    ( u32 )SESSION_START );
 	state.SetField ( -1, "SESSION_END",			    ( u32 )SESSION_END );
 	state.SetField ( -1, "BACK_BUTTON_PRESSED",		( u32 )BACK_BUTTON_PRESSED );
+	state.SetField ( -1, "MENU_BUTTON_PRESSED",		( u32 )MENU_BUTTON_PRESSED );
 
 	luaL_Reg regTable [] = {
 		{ "getUTCTime",				_getUTCTime },
@@ -224,6 +225,24 @@ bool MOAIAppAndroid::NotifyBackButtonPressed () {
 		return lua_toboolean ( state, -1 );
 	} else {
 		
+		return false;
+	}
+}
+
+//----------------------------------------------------------------//
+bool MOAIAppAndroid::NotifyMenuButtonPressed () {
+
+	MOAILuaRef& callback = this->mListeners [ MENU_BUTTON_PRESSED ];
+
+	if ( callback ) {
+
+		MOAILuaStateHandle state = callback.GetSelf ();
+
+		state.DebugCall ( 0, 1 );
+
+		return lua_toboolean ( state, -1 );
+	} else {
+
 		return false;
 	}
 }
@@ -264,6 +283,12 @@ void MOAIAppAndroid::NotifyWillEndSession () {
 extern "C" bool Java_com_ziplinegames_moai_Moai_AKUAppBackButtonPressed ( JNIEnv* env, jclass obj ) {
 
 	return MOAIAppAndroid::Get ().NotifyBackButtonPressed ();
+}
+
+//----------------------------------------------------------------//
+extern "C" bool Java_com_ziplinegames_moai_Moai_AKUAppMenuButtonPressed ( JNIEnv* env, jclass obj ) {
+
+	return MOAIAppAndroid::Get ().NotifyMenuButtonPressed ();
 }
 
 //----------------------------------------------------------------//
