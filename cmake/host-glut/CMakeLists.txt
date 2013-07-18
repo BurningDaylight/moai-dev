@@ -70,3 +70,8 @@ if ( MOAI_UNTZ AND BUILD_LINUX )
   target_link_libraries ( moai ${SDL_LIBRARY} )
 endif ( MOAI_UNTZ AND BUILD_LINUX )
 
+if ( BUILD_LINUX )
+target_link_libraries ( moai
+  GL
+)
+endif ( BUILD_LINUX )
