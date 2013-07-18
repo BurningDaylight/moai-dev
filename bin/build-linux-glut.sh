@@ -38,7 +38,7 @@ cmake \
 -DCMAKE_BUILD_TYPE=Release \
 ../
 
-make -j4
+VERBOSE=1 make -j6
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
