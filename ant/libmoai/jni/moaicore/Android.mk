@@ -10,6 +10,8 @@
 	LOCAL_ARM_MODE 		:= $(MY_ARM_MODE)
 	LOCAL_CFLAGS		:= -include $(MY_MOAI_ROOT)/src/zl-vfs/zl_replace.h
 
+	LOCAL_CFLAGS  += -DMOAI_WITH_OPENSSL=FALSE
+
 	LOCAL_C_INCLUDES 	:= $(MY_HEADER_SEARCH_PATHS)
 	LOCAL_SRC_FILES 	+= $(wildcard $(MY_MOAI_ROOT)/src/moai-core/*.cpp) 
   LOCAL_SRC_FILES   += $(wildcard $(MY_MOAI_ROOT)/src/moai-util/*.cpp) 
