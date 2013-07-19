@@ -112,6 +112,7 @@ add_subdirectory ( moai-core )
 add_subdirectory ( moai-util )
 add_subdirectory ( moai-sim )
 
+add_subdirectory ( moai-luaext )
 
 add_subdirectory ( moai-box2d )
 add_subdirectory ( moai-chipmunk )

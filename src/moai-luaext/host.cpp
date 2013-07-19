@@ -18,15 +18,19 @@ extern "C" {
 //----------------------------------------------------------------//
 void AKUExtLoadLuacrypto () {
 
+#ifndef MOAI_OS_LINUX
 	lua_State* state = AKUGetLuaState ();
 	luaopen_crypto ( state );
+#endif
 }
 
 //----------------------------------------------------------------//
 void AKUExtLoadLuacurl () {
 
+#ifndef MOAI_OS_LINUX
 	lua_State* state = AKUGetLuaState ();
 	luaopen_luacurl ( state );
+#endif
 }
 
 //----------------------------------------------------------------//
@@ -46,6 +50,8 @@ void AKUExtLoadLuasocket () {
 //----------------------------------------------------------------//
 void AKUExtLoadLuasql () {
 
+#ifndef MOAI_OS_LINUX
 	lua_State* state = AKUGetLuaState ();
 	luaopen_luasql_sqlite3 ( state );
+#endif
 }
