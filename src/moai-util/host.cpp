@@ -50,6 +50,8 @@ void AKUFinalizeUtil () {
 	sIsInitialized = false;
 }
 
+#if MOAI_WITH_OPENSSL
+
 static HANDLE* ssl_mutexes;
 
 static void _locking_function ( int mode, int mutex_num, const char *file, int line ) {
@@ -68,6 +70,8 @@ static unsigned long _ssl_id_callback ( ) {
 
 	return ( unsigned long )GetCurrentThreadId ();
 }
+
+#endif
 
 //----------------------------------------------------------------//
 void AKUInitializeUtil () {
