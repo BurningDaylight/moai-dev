@@ -223,7 +223,7 @@
 	
 	# build libmoai
 	pushd jni > /dev/null
-		ndk-build $verbose
+		ndk-build -j8 $verbose
 	popd > /dev/null
 
 	# remove temp files
