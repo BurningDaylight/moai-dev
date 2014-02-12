@@ -123,6 +123,7 @@ public class Moai {
  	protected static native void    AKUAppInitialize				();
  	protected static native void    AKUModulesRunLuaAPIWrapper      ();
 	protected static native boolean	AKUAppBackButtonPressed			();
+    protected static native boolean	AKUAppMenuButtonPressed			();
 	protected static native void    AKUModulesContextInitialize     ();
 	protected static native void	AKUAppDialogDismissed			( int dialogResult );
 	protected static native void	AKUAppDidStartSession			( boolean resumed );
@@ -175,6 +176,16 @@ public class Moai {
 		synchronized ( sAkuLock ) {
 			result = AKUAppBackButtonPressed ();
 		}
+		return result;
+	}
+
+	//----------------------------------------------------------------//
+    public static boolean menuButtonPressed () {
+
+    	boolean result;
+    	synchronized ( sAkuLock ) {
+    		result = AKUAppMenuButtonPressed ();
+    	}
 		return result;
 	}
 
